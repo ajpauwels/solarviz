@@ -1,0 +1,67 @@
+extends layout.pug
+
+block append scripts
+	script(src='js/d3.min.js')
+	script(src='js/c3.min.js')
+	script(src='js/index.js')
+
+block append style
+	link(rel="stylesheet", type="text/css", href="css/c3.min.css")
+	link(rel="stylesheet", type="text/css", href="css/index.css")
+
+block content
+	div.container
+		div.row
+			div#chart
+		div.row
+			div#statistics.col-xs-4
+				fieldset#summary-stats-field
+					legend Summary statistics
+			div#options.col-xs-8
+				form#options-form.form-horizontal
+					fieldset
+						legend Options
+
+						div.form-group.col-md-12
+							label.col-md-2.control-label(for="data-select") Data selection:
+							div.col-md-3
+								select.form-control#data-select
+									each val in files
+										option.data-option= val
+							div.col-md-6.btn-group
+								button.btn.btn-primary#download-btn(disabled) Download CSV
+								label.btn.btn-success.btn-file#upload-btn Upload CSV
+									input#upload-input(type="file", style="display: none")
+
+						div.form-group.col-md-12
+							label.col-md-2.control-label(for="begin-date") Range:
+							div.col-md-3
+								input.form-control#begin-date(type="date", name="begin-date")
+							div.col-md-3
+								input.form-control#end-date(type="date", name="end-date")
+
+						div.form-group.col-md-12
+							label.col-md-2.control-label(for="resolution") Resolution:
+							div.col-md-3
+								input.form-control#resolution(type="number", value="0")
+							div.col-md-3
+								select.form-control#resolution-unit-select
+									option.unit-option(value="millis", selected) milliseconds
+									option.unit-option(value="secs") seconds
+									option.unit-option(value="mins") minutes
+									option.unit-option(value="hrs") hours
+									option.unit-option(value="days") days
+
+						div.form-group.col-md-12
+							div.col-md-5
+							div.col-md-3
+								button.col-md-12.btn.btn-primary.pull-right#update-btn(disabled) Update graph
+			div#operations.col-xs-8
+				form#options-form.form-horizontal
+					fieldset#operations-fields
+						legend Operations
+
+						div.form-group#new-op-div
+							div.col-md-7
+							div.col-md-2
+								a.btn.btn-default.col-md-12#new-op-btn + New

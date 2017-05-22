@@ -1,0 +1,19 @@
+#options-form {
+	margin: auto;
+}
+
+#chart .c3-circle {
+	display: none;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.operation-show-checkbox {
+	display: none;
+}
+
+.operation-form-group:hover .operation-show-checkbox, .operation-show-checkbox:checked {
+	display: block;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "solarviz",
+  "version": "1.0.0",
+  "description": "Visualization for comparing energy loads with solar output",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "deploy": "gcloud app deploy app.yaml"
+  },
+  "engines": {
+    "node": "6.9.2"
+  },
+  "author": "Alexandre Pauwels",
+  "license": "ISC",
+  "dependencies": {
+    "csv": "^1.1.0",
+    "datejs": "^1.0.0-rc3",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.16",
+    "multer": "^1.2.1",
+    "pug": "^2.0.0-beta6",
+    "serve-favicon": "^2.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ajpauwels/solarviz.git"
+  }
+}
